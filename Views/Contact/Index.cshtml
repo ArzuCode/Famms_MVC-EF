@@ -1,0 +1,85 @@
+﻿
+@model ContactIndexVM
+
+@{
+    ViewData["Title"] = "Contact Page";
+    ViewData["InnerPageSection"] = "Contact us";
+}
+
+
+
+<!-- why section -->
+<section class="why_section layout_padding">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="full">
+
+
+
+
+                    <form asp-controller="Contact" asp-action="Index" method="post">
+                        <div class="text-danger" asp-validation-summary="All">
+                           @*for val. errors)*@
+                        </div>
+                        @*@Html.AntiForgeryToken()*@ @*in my case i dont need*@
+                        <fieldset>
+
+                            <input asp-for="FullName" type="text" placeholder="Enter your full name" required />
+                            <span class="text-danger" asp-validation-for="FullName"></span>
+
+                            <input asp-for="Email" type="email" placeholder="Enter your email address"  required />
+                            <span class="text-danger" asp-validation-for="Email"></span>
+
+
+                            <input asp-for="Subject" type="text" placeholder="Enter subject"  required />
+                            <span class="text-danger" asp-validation-for="Subject"></span>
+
+
+                            <textarea asp-for="Message" placeholder="Enter your message" required></textarea>
+                           
+
+                            <input type="submit" value="Submit" />
+                        </fieldset>
+                    </form> 
+
+
+                    @section ValidationScript{
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end why section -->
+<!-- arrival section -->
+<section class="arrival_section">
+    <div class="container">
+        <div class="box">
+            <div class="arrival_bg_box">
+                <img src="~/images/arrival-bg.png" alt="">
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto">
+                    <div class="heading_container remove_line_bt">
+                        <h2>
+                            #NewArrivals
+                        </h2>
+                    </div>
+                    <p style="margin-top: 20px;margin-bottom: 30px;">
+                        Vitae fugiat laboriosam officia perferendis provident aliquid voluptatibus dolorem, fugit ullam sit earum id eaque nisi hic? Tenetur commodi, nisi rem vel, ea eaque ab ipsa, autem similique ex unde!
+                    </p>
+                    <a href="">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end arrival section -->
